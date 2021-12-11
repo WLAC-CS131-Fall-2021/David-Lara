@@ -35,9 +35,14 @@ public class Main {
                     pixelMatrix[2][1] = new Color(InputImage.getRGB(i+1,j)).getRed();
                     pixelMatrix[2][2] = new Color(InputImage.getRGB(i+1,j+1)).getRed();
 
+                    //Take in the red value of the pixel in the image and places it into the pixel matrix
+
                     int edge = (int) Convolution(pixelMatrix);
 
+                    //Takes in the pixelMatrix and performs convolution on it using Gx and Gy kernels
+
                     OutputImage.setRGB(i,j,(edge << 16 | edge << 8 | edge));
+                    //Manipulate edge RGB values by shifting bits
 
 
 

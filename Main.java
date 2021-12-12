@@ -9,8 +9,8 @@ import java.io.InterruptedIOException;import java.util.Scanner;
 public class Main {
     static BufferedImage InputImage,OutputImage;
     static int [][] kernelMatrix = new int[3][3];
-    static int [][] Gx = {{-1, 0, 1}, {-2, 0, 2 } , {-1, 0, 1}}; //Directional Derivative in the X direction
-    static int [][] Gy = {{1,2,1}, {0,0,0}, {-1,-2,-1}}; //Directional Derivative in the Y direction
+    static int [][] Gx = {{-1, 0, 1}, {-2, 0, 2 } , {-1, 0, 1}}; //Directional Discrete Derivative in the X direction
+    static int [][] Gy = {{1,2,1}, {0,0,0}, {-1,-2,-1}}; //Directional Discrete Derivative in the Y direction
 
     public static void main(String[] args) {
 

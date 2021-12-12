@@ -31,7 +31,7 @@ public class Main {
                     kernelMatrix[0][2] = new Color(InputImage.getRGB(i-1, j +1)).getRed();
                     kernelMatrix[1][0] = new Color(InputImage.getRGB(i,j-1)).getRed();
                     kernelMatrix[1][1] = new Color(InputImage.getRGB(i,j)).getRed();
-                    kernelMatrix[1][2] = new Color(InputImage.getRGB(i+1,j-1)).getRed();
+                    kernelMatrix[1][2] = new Color(InputImage.getRGB(i,j+1)).getRed();
                     kernelMatrix[2][0] = new Color(InputImage.getRGB(i+1,j-1)).getRed();
                     kernelMatrix[2][1] = new Color(InputImage.getRGB(i+1,j)).getRed();
                     kernelMatrix[2][2] = new Color(InputImage.getRGB(i+1,j+1)).getRed();

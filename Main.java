@@ -9,8 +9,8 @@ import java.io.InterruptedIOException;import java.util.Scanner;
 public class Main {
     static BufferedImage InputImage,OutputImage;
     static int [][] kernelMatrix = new int[3][3];
-    static int [][] Gx = {{-1, 0, 1}, {-2, 0, 2 } , {-1, 0, 1}};
-    static int [][] Gy = {{1,2,1}, {0,0,0}, {-1,-2,1}};
+    static int [][] Gx = {{-1, 0, 1}, {-2, 0, 2 } , {-1, 0, 1}}; //Directional Derivative in the X direction
+    static int [][] Gy = {{1,2,1}, {0,0,0}, {-1,-2,-1}}; //Directional Derivative in the Y direction
 
     public static void main(String[] args) {
 
@@ -60,7 +60,7 @@ public class Main {
 
 
             }
-            File outputFile = new File("edgdetectedimage.png");
+            File outputFile = new File("edgedetectedimage.png");
             ImageIO.write(OutputImage,"jpg",outputFile);
 
 
@@ -80,13 +80,13 @@ public class Main {
 
     public static double Convolution(int[][] pixelMatrix, int[][] Gx, int[][] Gy){
 
-        int DirectionalX = (pixelMatrix[0][0] * -Gx[0][0]) +(pixelMatrix[0][1] * Gx[0][1])+ (pixelMatrix[0][2] * Gx[0][2]) +
-                (pixelMatrix[1][0] * -Gx[1][0]) + (pixelMatrix[1][1] * Gx[1][1]) +(pixelMatrix[1][2] * Gx[1][2]) +
-                (pixelMatrix[2][0] * -Gx[2][0]) + (pixelMatrix[2][1] * Gx[2][1])+ (pixelMatrix[2][2] * Gx[2][2]);
+        int DirectionalX = (pixelMatrix[0][0] * Gx[0][0]) +(pixelMatrix[0][1] * Gx[0][1])+ (pixelMatrix[0][2] * Gx[0][2]) +
+                (pixelMatrix[1][0] * Gx[1][0]) + (pixelMatrix[1][1] * Gx[1][1]) +(pixelMatrix[1][2] * Gx[1][2]) +
+                (pixelMatrix[2][0] * Gx[2][0]) + (pixelMatrix[2][1] * Gx[2][1])+ (pixelMatrix[2][2] * Gx[2][2]);
         //Calculates the DirectionalX using the kernel for sobel operator in X direction
-        int DirectionalY = (pixelMatrix[0][0]*Gy[0][0]) + (pixelMatrix[0][1] * Gy[0][0]) + (pixelMatrix[0][2] * Gy[0][2]) +
+        int DirectionalY = (pixelMatrix[0][0]* Gy[0][0]) + (pixelMatrix[0][1] * Gy[0][1]) + (pixelMatrix[0][2] * Gy[0][2]) +
                 (pixelMatrix[1][0] * Gy[1][0]) + (pixelMatrix[1][1] * Gy[1][1]) + (pixelMatrix[1][2] * Gy[1][2]) +
-                (pixelMatrix[2][0]* -Gy[2][0]) + (pixelMatrix[2][1]* -Gy[2][1]) +(pixelMatrix[2][2]* -Gy[2][2]);
+                (pixelMatrix[2][0]* Gy[2][0]) + (pixelMatrix[2][1]* Gy[2][1]) +(pixelMatrix[2][2]* Gy[2][2]);
         //Calculates the DirectionalY using the kernel for sobel operator in Y direction
 
         return Math.sqrt(Math.pow(DirectionalX,2)+ Math.pow(DirectionalY,2)); //Normalizes the results so we do not obtain negative numbers as there are no negative rgb values

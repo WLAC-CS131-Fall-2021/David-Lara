@@ -18,8 +18,6 @@ public class Main {
 
         try{
             String filename;
-            int choice;
-            boolean choseSobel = false;
             Scanner Keyboard = new Scanner(System.in);
             System.out.println("Enter the directory of the image file you wish to perform sobel edge detection on:" +
                     "\nExample of directory C:\\Users\\David\\Videos\\Grand Theft Auto V\\Grand Theft Auto V Super-Resolution 2021.11.16 - 13.10.05.07.png");

@@ -3,3 +3,11 @@ My CS131 Presentation on Sobel Edge Detection and Matrices. I have included an i
 
 Link to video presentation:
 https://youtu.be/G5q4MIpbHZc
+
+<br>
+
+<p align="center">
+<img src="HighResCar.png" width="400"/>
+<img src="edgedetectedimage.png" width=400>
+</p>
+
